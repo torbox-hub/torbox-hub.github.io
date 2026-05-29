@@ -3,54 +3,261 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TorBox Pro | Official Hub</title>
+    <title>TorBox | Deployment & Optimization Hub</title>
     <style>
-        :root { --bg: #050505; --card: #0d0d0d; --text: #e1e1e1; --dim: #888; --accent: #ffffff; }
-        body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; display: flex; justify-content: center; padding: 40px 20px; line-height: 1.6; }
-        .wrapper { max-width: 500px; width: 100%; }
-        h1 { font-size: 28px; margin-bottom: 8px; letter-spacing: -0.5px; }
-        .desc { color: var(--dim); margin-bottom: 40px; font-size: 15px; }
-        .btn { display: block; background: var(--accent); color: #000; text-align: center; padding: 18px; border-radius: 8px; text-decoration: none; font-weight: 700; margin: 30px 0; transition: opacity 0.2s; }
-        .btn:hover { opacity: 0.9; }
-        h2 { font-size: 14px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--dim); margin: 40px 0 20px; }
-        .item { display: flex; justify-content: space-between; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid #111; font-size: 15px; }
-        .faq { margin-top: 50px; }
-        .q { font-weight: 600; margin-bottom: 8px; cursor: pointer; display: flex; justify-content: space-between; color: #fff; padding: 10px 0; }
-        .a { color: var(--dim); font-size: 14px; margin-bottom: 15px; display: none; padding-left: 5px; }
-        ol { padding-left: 20px; color: var(--dim); font-size: 14px; margin-bottom: 30px; }
+        :root {
+            --bg: #050505;
+            --card: #0d0d0d;
+            --border: #1c1c1e;
+            --text-main: #f5f5f7;
+            --text-dim: #8e8e93;
+            --accent-green: #30d158;
+            --btn-bg: #ffffff;
+            --btn-text: #000000;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            padding: 60px 20px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .wrapper {
+            max-width: 520px;
+            width: 100%;
+        }
+
+        header {
+            margin-bottom: 40px;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(48, 209, 88, 0.1);
+            color: var(--accent-green);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            border: 1px solid rgba(48, 209, 88, 0.15);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent-green);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--accent-green);
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        .subtitle {
+            color: var(--text-dim);
+            font-size: 16px;
+        }
+
+        .btn-main {
+            display: block;
+            background: var(--btn-bg);
+            color: var(--btn-text);
+            text-align: center;
+            padding: 18px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            margin: 32px 0;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-main:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        h2 {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-dim);
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .bonus-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 15px;
+        }
+
+        .bonus-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .bonus-days {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .protocol-text {
+            font-size: 14px;
+            color: var(--text-main);
+        }
+
+        .protocol-text strong {
+            color: #ff453a;
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .accordion-trigger {
+            width: 100%;
+            background: none;
+            border: none;
+            color: #fff;
+            text-align: left;
+            padding: 18px 0;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .accordion-icon {
+            color: var(--text-dim);
+            transition: transform 0.2s ease;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.25s cubic-bezier(0, 1, 0, 1);
+            color: var(--text-dim);
+            font-size: 14px;
+            padding-bottom: 16px;
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-dim);
+        }
     </style>
 </head>
 <body>
+
     <div class="wrapper">
-        <h1>TorBox Pro Hub</h1>
-        <p class="desc">Verified activation guide. Works for all plans (Essential, Standard, Pro).</p>
-        
-        <a href="https://debrid-activate.link/go" class="btn">ACTIVATE PRO BONUS</a>
+        <header>
+            <div class="status-badge">
+                <div class="status-dot"></div>
+                Pro Config Node Active (Locked until 2027)
+            </div>
+            <h1>TorBox Optimization Hub</h1>
+            <p class="subtitle">Account deployment protocol for Stremio, Torrentio, and Kodi setups.</p>
+        </header>
 
-        <h2>Bonus Schedule</h2>
-        <div class="item"><span>1 Month</span> <span>+7 Days</span></div>
-        <div class="item"><span>3 Months</span> <span>+21 Days</span></div>
-        <div class="item"><span>6 Months</span> <span>+42 Days</span></div>
-        <div class="item"><span>1 Year</span> <span>+84 Days</span></div>
+        <a href="https://debrid-activate.link/go" class="btn-main">INITIALIZE DEPLOYMENT & ACTIVATE</a>
 
-        <h2>30% OFF Crypto Guide</h2>
-        <ol>
-            <li>Use code <strong>SIGMA30</strong> at checkout (One-Time Purchase).</li>
-            <li>Download <strong>Nexus Wallet</strong> (App Store/Play Store).</li>
-            <li>Buy LTC instantly, select Litecoin at TorBox checkout, and pay via QR.</li>
-        </ol>
-
-        <div class="faq">
-            <h2>Important Details</h2>
-            <div class="q" onclick="this.nextElementSibling.style.display=(this.nextElementSibling.style.display=='block'?'none':'block')">Why skip 24h trial? <span>+</span></div>
-            <div class="a">The trial counts as your "first activation" and voids the referral. Skip it to get your bonus days.</div>
-            
-            <div class="q" onclick="this.nextElementSibling.style.display=(this.nextElementSibling.style.display=='block'?'none':'block')">Where is the bonus? <span>+</span></div>
-            <div class="a">Bonus days are tracked automatically and added to your profile immediately after payment.</div>
-            
-            <div class="q" onclick="this.nextElementSibling.style.display=(this.nextElementSibling.style.display=='block'?'none':'block')">Still need help? <span>+</span></div>
-            <div class="a">Drop a comment on Reddit or send me a DM. I'm active and happy to help!</div>
+        <div class="card">
+            <h2>First-Order Bonus Allocation</h2>
+            <div class="bonus-row"><span>Buy 1 Month Plan</span><span class="bonus-days">+7 Days Free</span></div>
+            <div class="bonus-row"><span>Buy 3 Months Plan</span><span class="bonus-days">+21 Days Free</span></div>
+            <div class="bonus-row"><span>Buy 6 Months Plan</span><span class="bonus-days">+42 Days Free</span></div>
+            <div class="bonus-row"><span>Buy 1 Year Plan</span><span class="bonus-days" style="color: var(--accent-green)">+84 Days Free</span></div>
         </div>
+
+        <div class="card">
+            <h2>Critical Setup Requirement</h2>
+            <p class="protocol-text"><strong>🛑 AVOID THE 24H FREE TRIAL:</strong> The system registers the trial as your account's first activation. If triggered, it permanently blocks the database token from assigning your first-order bonus days during a future purchase. Skip the trial completely.</p>
+        </div>
+
+        <div class="faq-container">
+            <h2>Documentation & Support</h2>
+            
+            <div class="accordion-item">
+                <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                    Where do I find my extra bonus days? <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                    The extra days will not appear inside the checkout shopping cart. The token processes automatically in the backend, appending the free premium time directly to your user dashboard right after payment completion.
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                    Crypto & Alternative checkout discounts? <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                    If paying via Crypto, select "One-Time Purchase" at checkout and utilize the promotion token inside the comments section for an additional discount. Regular card/PayPal purchases still instantly receive the full bonus schedule listed above.
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                    Need assistance with Stremio speed optimization? <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                    If your client node fails to register or you want to maximize stream caching speeds on your setup, drop a comment on the original thread or send a direct message.
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            Lightweight deployment token. Safe downloading.
+        </footer>
     </div>
+
+    <script>
+        function toggleAccordion(element) {
+            const content = element.nextElementSibling;
+            const icon = element.querySelector('.accordion-icon');
+            
+            if (content.style.maxHeight && content.style.maxHeight !== "0px") {
+                content.style.maxHeight = "0px";
+                icon.textContent = "+";
+            } else {
+                // Затваря останалите за по-чисто усещане
+                document.querySelectorAll('.accordion-content').forEach(item => item.style.maxHeight = "0px");
+                document.querySelectorAll('.accordion-icon').forEach(item => item.textContent = "+");
+                
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.textContent = "−";
+            }
+        }
+    </script>
 </body>
 </html>
