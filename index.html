@@ -43,7 +43,6 @@
             margin-bottom: 35px;
         }
 
-        /* КОМПАКТЕН И ЕЛЕГАНТЕН БАДЖ */
         .alert-pill {
             display: inline-flex;
             align-items: center;
@@ -95,11 +94,6 @@
             letter-spacing: -0.5px;
             margin-bottom: 10px;
             color: #ffffff;
-        }
-
-        .sub-text {
-            color: var(--dcolor);
-            font-size: 15px;
         }
 
         .action-link {
@@ -185,16 +179,16 @@
 
         .tech-tags {
             display: flex;
-            gap: 8px;
+            gap: 6px;
             flex-wrap: wrap;
             margin-top: 12px;
         }
         .tag {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 4px 10px;
+            background: rgba(255, 255, 255, 0.04);
+            padding: 4px 9px;
             border-radius: 6px;
             font-size: 12px;
-            color: #ffffff;
+            color: #e5e7eb;
             border: 1px solid rgba(255, 255, 255, 0.03);
         }
 
@@ -265,19 +259,25 @@
                 <span id="current-month">CHECKING NODE...</span>
             </div>
             <h1>TorBox Account Deployment</h1>
-            <p class="sub-text">Stremio, Torrentio, and Kodi configuration sync pipeline.</p>
         </div>
 
-        <a href="https://debrid-activate.link/go" class="action-link">INITIALIZE DEPLOYMENT & ACTIVATE BONUS</a>
+        <a href="https://debrid-activate.link/go" class="action-link">INITIALIZE DEPLOYMENT & CLAIM BONUS</a>
 
         <div class="content-box">
             <h2>Verified Environment Compatibility</h2>
             <p style="font-size: 14px; color: var(--dcolor);">The initialization token secures immediate API backend compatibility for:</p>
             <div class="tech-tags">
-                <span class="tag">Stremio (All Devices)</span>
-                <span class="tag">Torrentio Addon</span>
-                <span class="tag">Kodi Media Center</span>
-                <span class="tag">CyberFlix / Syncler</span>
+                <span class="tag" style="border-color: rgba(0, 255, 135, 0.2); color: var(--gcolor);">Nuvio App (Native)</span>
+                <span class="tag">Stremio & Torrentio</span>
+                <span class="tag">Kodi (TorBox Addon)</span>
+                <span class="tag">Infuse</span>
+                <span class="tag">Plex (via rclone/zurg)</span>
+                <span class="tag">Jellyfin / Emby</span>
+                <span class="tag">Cinemeta / CyberFlix</span>
+                <span class="tag">Syncler</span>
+                <span class="tag">Hydra / KnightCrawler</span>
+                <span class="tag">JDownloader 2</span>
+                <span class="tag">SillyTavern</span>
             </div>
         </div>
 
@@ -338,13 +338,13 @@
                     Need assistance with script optimization? <span class="collapse-symbol">+</span>
                 </button>
                 <div class="collapse-body">
-                    If you run into client mismatches or need help syncing TorBox with Stremio for maximum download pipelines, feel free to drop a comment on the original Reddit thread or send a direct message!
+                    If you run into client mismatches or need help syncing TorBox with Nuvio or Stremio for maximum download pipelines, feel free to drop a comment on the original Reddit thread or send a direct message!
                 </div>
             </div>
         </div>
 
         <div class="footer-info">
-            Lightweight secure deployment vector • TorBox compatible
+            Lightweight secure deployment vector • TorBox & Nuvio compatible
         </div>
     </div>
 
@@ -355,7 +355,6 @@
                 const text = document.getElementById("current-month");
                 
                 pill.classList.add("success");
-                // Съкратен, силно въздействащ ИТ формат (поддържа правоъгълна форма на баджа)
                 text.innerHTML = "NODE SECURED • AUG 2027";
             }, 1100); 
         });
