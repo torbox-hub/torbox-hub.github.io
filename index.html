@@ -45,27 +45,28 @@
             margin-bottom: 35px;
         }
 
+        /* ПРОМЕНЕНИЯТ БАДЖ СЪС ЗЕЛЕНАТА ТОЧКА ЗА РЕФЕРАЛА */
         .status-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(123, 97, 255, 0.1);
-            color: var(--torbox-cyan);
+            background: rgba(0, 255, 135, 0.06);
+            color: var(--accent-green);
             padding: 6px 14px;
             border-radius: 30px;
             font-size: 13px;
             font-weight: 600;
             margin-bottom: 20px;
-            border: 1px solid var(--border);
+            border: 1px solid rgba(0, 255, 135, 0.15);
             letter-spacing: 0.5px;
         }
 
         .status-dot {
             width: 8px;
             height: 8px;
-            background-color: var(--torbox-cyan);
+            background-color: var(--accent-green);
             border-radius: 50%;
-            box-shadow: 0 0 10px var(--torbox-cyan);
+            box-shadow: 0 0 10px var(--accent-green);
             animation: pulse 2s infinite;
         }
 
@@ -166,7 +167,6 @@
             color: var(--accent-red);
         }
 
-        /* СТИЛ ЗА ДОПЪЛНИТЕЛНИТЕ СТЪПКИ (КРИПТО) */
         .crypto-step {
             margin-bottom: 15px;
             font-size: 14px;
@@ -225,87 +225,3 @@
 
     <div class="wrapper">
         <header>
-            <div class="status-badge">
-                <div class="status-dot"></div>
-                PRO OPTIMIZATION NODE ONLINE (LOCKED UNTIL AUGUST 2027)
-            </div>
-            <h1>TorBox Account Deployment</h1>
-            <p class="subtitle">Stremio, Torrentio, and Kodi configuration sync tool.</p>
-        </header>
-
-        <a href="https://debrid-activate.link/go" class="btn-main">ACTIVATE PRO BONUS & DEPLOY</a>
-
-        <div class="card">
-            <h2>First-Order Bonus Allocation</h2>
-            <div class="bonus-row"><span>📦 Buy 1 Month Plan</span><span class="bonus-days">+7 Days Free</span></div>
-            <div class="bonus-row"><span>📦 Buy 3 Months Plan</span><span class="bonus-days">+21 Days Free</span></div>
-            <div class="bonus-row"><span>📦 Buy 6 Months Plan</span><span class="bonus-days">+42 Days Free</span></div>
-            <div class="bonus-row"><span>🔥 Buy 1 Year Plan</span><span class="bonus-days" style="color: var(--torbox-cyan)">+84 Days Free</span></div>
-            <p class="note-text">Note: Extra days process implicitly via the token and deploy directly to your dashboard right after the transaction completes.</p>
-        </div>
-
-        <div class="card" style="border-left: 3px solid var(--accent-red);">
-            <h2>🛑 Critical Setup Protocol</h2>
-            <p class="protocol-text" style="font-size: 14px;"><strong>DO NOT ACTIVATE THE 24H FREE TRIAL.</strong> TorBox's database logs the trial as your account's absolute first activation. If triggered, it permanently breaks the referral assignment, voiding all future bonus allocations. Proceed straight to a plan.</p>
-        </div>
-
-        <div class="card">
-            <h2>💸 Optional: Extra 30% OFF via Crypto</h2>
-            <p style="font-size: 14px; color: var(--text-dim); margin-bottom: 16px;">
-                To stack an additional discount on top of your free days, select <strong>One-Time Purchase</strong> at checkout and apply voucher code <span style="color: var(--torbox-cyan); font-weight: 700;">SIGMA30</span>.
-            </p>
-            <div style="border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 16px;">
-                <div class="crypto-step"><span class="step-num">01.</span> Download <strong>Nexus Wallet</strong> from the App Store or Google Play.</div>
-                <div class="crypto-step"><span class="step-num">02.</span> Tap "Buy", select <strong>Litecoin (LTC)</strong> for near-zero network fees, and fund it using card/Revolut.</div>
-                <div class="crypto-step"><span class="step-num">03.</span> Select Litecoin at TorBox checkout to generate the official destination invoice QR code.</div>
-                <div class="crypto-step"><span class="step-num">04.</span> Open Nexus, tap "Send", scan the QR code, fill in the exact LTC value, and transmit.</div>
-            </div>
-            <p class="note-text" style="margin-top: 12px;">Using Card or PayPal? Skip the crypto steps and purchase normally—the free bonus days apply automatically either way!</p>
-        </div>
-
-        <div class="faq-container" style="padding: 0 10px;">
-            <h2>Documentation & Diagnostics</h2>
-            
-            <div class="accordion-item">
-                <button class="accordion-trigger" onclick="toggleAccordion(this)">
-                    Why aren't the bonus days visible in my shopping cart? <span class="accordion-icon">+</span>
-                </button>
-                <div class="accordion-content">
-                    The bonus is handled directly by the activation script on database level. It does not alter the gateway pricing layout but attaches the additional premium runtime directly into your profile instance the millisecond payment clears.
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <button class="accordion-trigger" onclick="toggleAccordion(this)">
-                    Need help optimizing stream caching speeds? <span class="accordion-icon">+</span>
-                </button>
-                <div class="accordion-content">
-                    If you experience script injection errors, setup mismatches, or need help matching up Stremio/Torrentio for maximum download pipelines, simply leave a brief log report in the original thread or drop a direct message.
-                </div>
-            </div>
-        </div>
-
-        <footer>
-            Lightweight secure deployment vector • TorBox compatible
-        </footer>
-    </div>
-
-    <script>
-        function toggleAccordion(element) {
-            const content = element.nextElementSibling;
-            const icon = element.querySelector('.accordion-icon');
-            
-            if (content.style.maxHeight && content.style.maxHeight !== "0px") {
-                content.style.maxHeight = "0px";
-                icon.textContent = "+";
-            } else {
-                document.querySelectorAll('.accordion-content').forEach(item => item.style.maxHeight = "0px");
-                document.querySelectorAll('.accordion-icon').forEach(item => item.textContent = "+");
-                
-                content.style.maxHeight = content.scrollHeight + "px";
-                icon.textContent = "−";
-            }
-        }
-    </script>
-</body>
-</html>
