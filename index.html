@@ -6,27 +6,24 @@
     <title>TorBox | Verification & Setup Hub</title>
     <style>
         :root {
-            --bg: #0b0f17; /* По-мек, професионален тъмносин/сив фон */
-            --card-bg: #131924; /* Открояващи се карти */
-            --border: rgba(0, 255, 135, 0.08);
-            --border-hover: rgba(0, 255, 135, 0.25);
-            --text-main: #f3f4f6;
-            --text-dim: #9ca3af;
-            --torbox-green: #00ff87;
-            --torbox-green-hover: #00e074;
-            --accent-red: #f87171;
-            --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --bcolor: #0b0f17;
+            --ccolor: #131924;
+            --gcolor: #00ff87;
+            --ghover: #00e074;
+            --rcolor: #f87171;
+            --tcolor: #f3f4f6;
+            --dcolor: #9ca3af;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            background-color: var(--bg);
+            background-color: var(--bcolor);
             background-image: 
                 radial-gradient(circle at 50% 0%, rgba(0, 255, 135, 0.05) 0%, transparent 40%),
                 radial-gradient(circle at 0% 100%, rgba(156, 163, 175, 0.02) 0%, transparent 30%);
-            color: var(--text-main);
-            font-family: var(--font-stack);
+            color: var(--tcolor);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             display: flex;
             justify-content: center;
             padding: 50px 20px;
@@ -35,22 +32,22 @@
             min-height: 100vh;
         }
 
-        .wrapper {
+        .main-holder {
             max-width: 520px;
             width: 100%;
         }
 
-        header {
+        .top-info {
             text-align: center;
             margin-bottom: 35px;
         }
 
-        .status-badge {
+        .alert-pill {
             display: inline-flex;
             align-items: center;
             gap: 8px;
             background: rgba(0, 255, 135, 0.06);
-            color: var(--torbox-green);
+            color: var(--gcolor);
             padding: 6px 14px;
             border-radius: 30px;
             font-size: 13px;
@@ -61,16 +58,16 @@
             text-transform: uppercase;
         }
 
-        .status-dot {
+        .alert-dot {
             width: 8px;
             height: 8px;
-            background-color: var(--torbox-green);
+            background-color: var(--gcolor);
             border-radius: 50%;
-            box-shadow: 0 0 10px var(--torbox-green);
-            animation: pulse 2s infinite;
+            box-shadow: 0 0 10px var(--gcolor);
+            animation: pulse-node 2s infinite;
         }
 
-        @keyframes pulse {
+        @keyframes pulse-node {
             0% { opacity: 0.4; }
             50% { opacity: 1; }
             100% { opacity: 0.4; }
@@ -84,14 +81,14 @@
             color: #ffffff;
         }
 
-        .subtitle {
-            color: var(--text-dim);
+        .sub-text {
+            color: var(--dcolor);
             font-size: 15px;
         }
 
-        .btn-main {
+        .action-link {
             display: block;
-            background: linear-gradient(135deg, var(--torbox-green) 0%, var(--torbox-green-hover) 100%);
+            background: linear-gradient(135deg, var(--gcolor) 0%, var(--ghover) 100%);
             color: #0b0f17;
             text-align: center;
             padding: 18px;
@@ -105,6 +102,37 @@
             letter-spacing: 0.5px;
         }
 
-        .btn-main:hover {
+        .action-link:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(0, 255,
+            box-shadow: 0 6px 25px rgba(0, 255, 135, 0.35);
+        }
+
+        .content-box {
+            background: var(--ccolor);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 14px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--gcolor);
+            margin-bottom: 16px;
+            font-weight: 800;
+        }
+
+        .data-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            font-size: 15px;
+        }
+
+        .data-row:last-child {
+            border-bottom: none;
+            padding-bottom
