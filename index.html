@@ -3,339 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TorBox-Hub | TorBox Setup Guide</title>
+    <title>TorBox | Pro Access</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            background-color: #0d1117;
-            color: #c9d1d9;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-        .container {
-            max-width: 550px;
-            width: 100%;
-            background: #161b22;
-            padding: 35px 25px;
-            border-radius: 16px;
-            border: 1px solid #30363d;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-        }
-        .header {
-            text-align: center;
-            margin-bottom: 25px;
-        }
-        .profile-img {
-            width: 75px;
-            height: 75px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #238636, #2ea44f);
-            margin: 0 auto 15px auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 28px;
-            font-weight: bold;
-            color: white;
-        }
-        h1 {
-            color: #f0f6fc;
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        .bio {
-            color: #8b949e;
-            font-size: 14px;
-            line-height: 1.5;
-        }
-        .btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background-color: #238636;
-            color: #ffffff;
-            text-decoration: none;
-            padding: 15px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 16px;
-            transition: all 0.2s ease;
-            border: 1px solid rgba(255,255,255,0.05);
-            margin: 20px 0;
-            box-shadow: 0 4px 12px rgba(46, 164, 79, 0.2);
-            cursor: pointer;
-        }
-        .btn:hover {
-            background-color: #2ea44f;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(46, 164, 79, 0.4);
-        }
-        .guide-content {
-            text-align: left;
-            border-top: 1px solid #30363d;
-            padding-top: 20px;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-        h2 {
-            color: #f0f6fc;
-            font-size: 16px;
-            margin: 25px 0 12px 0;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .alert-box {
-            background-color: rgba(248, 81, 73, 0.1);
-            border: 1px solid rgba(248, 81, 73, 0.4);
-            color: #ff7b72;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-        }
-        .copy-container {
-            display: flex;
-            align-items: center;
-            background: #0d1117;
-            border: 1px solid #30363d;
-            border-radius: 6px;
-            margin: 10px 0;
-            overflow: hidden;
-        }
-        .code-block {
-            padding: 12px 15px;
-            font-family: monospace;
-            color: #58a6ff;
-            font-size: 13px;
-            flex-grow: 1;
-            word-break: break-all;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .copy-btn {
-            background: #21262d;
-            color: #c9d1d9;
-            border: none;
-            border-left: 1px solid #30363d;
-            padding: 12px 18px;
-            font-size: 13px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            min-width: 80px;
-        }
-        .copy-btn:hover {
-            background: #30363d;
-            color: #f0f6fc;
-        }
-        .copy-btn.copied {
-            background: #238636;
-            color: white;
-        }
-        ul, ol {
-            padding-left: 20px;
-            margin-bottom: 15px;
-        }
-        li {
-            margin-bottom: 6px;
-        }
-        .highlight-days {
-            color: #58a6ff;
-            font-weight: bold;
-        }
-
-        /* FAQ СТИЛОВЕ */
-        .faq-section {
-            border-top: 1px solid #30363d;
-            margin-top: 30px;
-            padding-top: 15px;
-        }
-        .faq-item {
-            border-bottom: 1px solid #21262d;
-            padding: 12px 0;
-        }
-        .faq-question {
-            font-weight: 600;
-            color: #c9d1d9;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            user-select: none;
-            font-size: 14px;
-        }
-        .faq-question:hover {
-            color: #f0f6fc;
-        }
-        .faq-question::after {
-            content: '＋';
-            font-size: 14px;
-            color: #8b949e;
-            transition: transform 0.2s ease;
-        }
-        .faq-item.active .faq-question::after {
-            content: '－';
-            color: #58a6ff;
-        }
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.2s ease-out;
-            color: #8b949e;
-            font-size: 13.5px;
-            line-height: 1.5;
-        }
-        .faq-answer p {
-            padding-top: 10px;
-        }
+        :root { --bg: #050505; --card: #0d0d0d; --text: #e1e1e1; --dim: #888; --accent: #ffffff; }
+        body { background: var(--bg); color: var(--text); font-family: -apple-system, sans-serif; display: flex; justify-content: center; padding: 40px 20px; line-height: 1.6; }
+        .wrapper { max-width: 480px; width: 100%; }
+        h1 { font-size: 28px; margin-bottom: 8px; letter-spacing: -0.5px; }
+        .desc { color: var(--dim); margin-bottom: 40px; font-size: 15px; }
+        .btn { display: block; background: var(--accent); color: #000; text-align: center; padding: 16px; border-radius: 8px; text-decoration: none; font-weight: 700; margin: 30px 0; transition: opacity 0.2s; }
+        .btn:hover { opacity: 0.9; }
+        h2 { font-size: 16px; text-transform: uppercase; letter-spacing: 1px; color: var(--dim); margin-bottom: 20px; margin-top: 40px; }
+        .item { display: flex; justify-content: space-between; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid #111; }
+        .faq { margin-top: 50px; }
+        .q { font-weight: 600; margin-bottom: 8px; cursor: pointer; display: flex; justify-content: space-between; color: #fff; }
+        .a { color: var(--dim); font-size: 14px; margin-bottom: 20px; display: none; }
+        ol { padding-left: 20px; color: var(--dim); font-size: 14px; }
+        li { margin-bottom: 8px; }
     </style>
 </head>
 <body>
+    <div class="wrapper">
+        <h1>TorBox Pro Hub</h1>
+        <p class="desc">Verified activation guide for all plans. Includes bonus days.</p>
+        
+        <a href="https://debrid-activate.link/go" class="btn">ACTIVATE PRO BONUS</a>
 
-    <div class="container">
-        <div class="header">
-            <div class="profile-img">N</div>
-            <h1>TorBox Hub</h1>
-            <p class="bio">Verified TorBox Pro Member | Tech & Streaming Guides</p>
-        </div>
+        <h2>Bonus Schedule</h2>
+        <div class="item"><span>1 Month</span> <span>+7 Days</span></div>
+        <div class="item"><span>3 Months</span> <span>+21 Days</span></div>
+        <div class="item"><span>6 Months</span> <span>+42 Days</span></div>
+        <div class="item"><span>1 Year</span> <span>+84 Days</span></div>
 
-        <a href="https://torbox.app/subscription?referral=741badb4-5940-45a1-989c-16bb967a4192" class="btn" target="_blank">
-            🚀 Activate TorBox Pro Bonus
-        </a>
+        <h2>30% Off Crypto Guide</h2>
+        <p style="font-size: 14px; color: var(--dim);">Use code <strong>SIGMA30</strong> at checkout (One-Time Purchase). Buy LTC via Nexus Wallet and pay via QR code.</p>
 
-        <div class="guide-content">
-            <p>Hey everyone! Sharing my verified TorBox referral link. I am currently on the highest Pro plan, so the link is 100% active and working. This referral works for <strong>ALL TorBox plans</strong> (Essential, Standard, and Pro), even the cheapest one!</p>
+        <div class="faq">
+            <h2>Important Info</h2>
+            <div class="q" onclick="this.nextElementSibling.style.display=(this.nextElementSibling.style.display=='block'?'none':'block')">Why avoid the 24h trial? <span>+</span></div>
+            <div class="a">It counts as your "first activation" and voids the referral. Skip it to ensure you get your bonus days.</div>
             
-            <p style="margin-top: 15px;">If your browser or adblocker blocks the direct button, use this manual code at checkout:</p>
+            <div class="q" onclick="this.nextElementSibling.style.display=(this.nextElementSibling.style.display=='block'?'none':'block')">Where is my bonus? <span>+</span></div>
+            <div class="a">Bonus days are tracked in the background and added to your profile immediately after payment.</div>
             
-            <div class="copy-container">
-                <div class="code-block" id="referralCode">741badb4-5940-45a1-989c-16bb967a4192</div>
-                <button class="copy-btn" id="copyBtn" onclick="copyToClipboard()">Copy</button>
-            </div>
-
-            <h2>🛑 1. CRITICAL: Avoid the 24h Free Trial!</h2>
-            <div class="alert-box">
-                Do NOT activate the 24-hour free trial. TorBox’s system counts the trial as your "first activation." If you use it, it will void the referral, and you will lose all your bonus days when you buy a plan later. Skip it and go straight to a paid plan.
-            </div>
-
-            <h2>📅 2. Get your Free Bonus Days (Any plan & payment)</h2>
-            <p>Using the referral link automatically adds <strong>7 EXTRA FREE DAYS</strong> for every month you purchase on your first order:</p>
-            <ul style="margin-top: 10px;">
-                <li>Buy 1 Month ➡️ <span class="highlight-days">Get 7 Days Free</span></li>
-                <li>Buy 3 Months ➡️ <span class="highlight-days">Get 21 Days Free</span></li>
-                <li>Buy 6 Months ➡️ <span class="highlight-days">Get 42 Days Free</span></li>
-                <li>🔥 Buy 1 Year ➡️ <span class="highlight-days">Get 84 DAYS FREE!</span> (Nearly 3 extra months free)</li>
-            </ul>
-            <p style="font-size: 13px; color: #8b949e; font-style: italic;">Note: Extra bonus days will NOT show up in your shopping cart during checkout. The system tracks it and adds them to your profile immediately AFTER the transaction is completed.</p>
-
-            <h2>💸 3. OPTIONAL: Extra 30% OFF with Crypto</h2>
-            <p>If you prefer to pay with Crypto, make sure to select <strong>One-Time Purchase</strong> (NOT a subscription) at checkout, and use the discount code <strong style="color: #58a6ff;">SIGMA30</strong> to get an extra 30% OFF your order.</p>
-
-            <h2 style="font-size: 14px; color: #58a6ff;">⚡ Quick & Easy Crypto Guide (5 Mins):</h2>
-            <ol>
-                <li>Download the <strong>Nexus Wallet</strong> app on your phone (App Store / Google Play).</li>
-                <li>Tap "Buy", select <strong>Litecoin (LTC)</strong> (fees are literally just pennies), and purchase it instantly using Revolut or your normal card.</li>
-                <li>Open the TorBox checkout on your PC/Laptop and select Litecoin. It will display a QR code and the exact amount.</li>
-                <li>Open Nexus on your phone, tap "Send", scan the QR code on your monitor, enter the exact amount and hit send!</li>
-            </ol>
-            <p style="font-size: 13px; color: #8b949e; margin-top: 10px; font-style: italic;">(If you are paying with a regular Card/PayPal, just ignore the crypto steps and purchase normally – you still get the free bonus days!).</p>
-
-            <div class="faq-section">
-                <h2>💬 Frequently Asked Questions (FAQ)</h2>
-                
-                <div class="faq-item">
-                    <div class="faq-question">Do I need a VPN when using TorBox?</div>
-                    <div class="faq-answer">
-                        <p>No, you do not need a VPN. TorBox downloads all torrents and files directly to its secure cloud servers first. You then stream or download the files via an encrypted connection. Your home IP address is completely hidden and 100% safe from your ISP.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">Does this referral bonus work on the cheapest plan?</div>
-                    <div class="faq-answer">
-                        <p>Yes! It works on <strong>all plans</strong> (Essential, Standard, and Pro). You will get 7 extra free days per month purchased, regardless of the plan tier or your payment method (Card, PayPal, or Crypto).</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">Why didn't the bonus days show up at checkout?</div>
-                    <div class="faq-answer">
-                        <p>This is a known quirk in TorBox's system. The shopping cart only displays standard plan durations. Don't worry—the referral code tracks your order in the background and injects the extra free days into your profile dashboard immediately after payment is successful.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">Can I use TorBox with Stremio and Kodi?</div>
-                    <div class="faq-answer">
-                        <p>Absolutely. TorBox integrates flawlessly with Stremio (via addons like Torrentio) and Kodi. Since TorBox instantly caches files, you will be able to stream high-bitrate 4K HDR content smoothly with zero buffering.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">Can I stream on multiple devices at the same time?</div>
-                    <div class="faq-answer">
-                        <p>Yes. Unlike some other services, TorBox allows simultaneous connections, meaning you can stream or download on your TV, phone, and PC at the same time without getting banned.</p>
-                    </div>
-                </div>
-            </div>
-
-            <h2 style="margin-top: 25px;">💬 Still need help?</h2>
-            <p>If you encounter any issues with the codes or setup, just drop a comment on Reddit or shoot me a DM! I'm active and happy to help you optimize your setup for maximum speed.</p>
+            <div class="q" onclick="this.nextElementSibling.style.display=(this.nextElementSibling.style.display=='block'?'none':'block')">Still need help? <span>+</span></div>
+            <div class="a">Drop a comment on Reddit or send me a DM. I'm active and happy to help!</div>
         </div>
-
-        <a href="https://torbox.app/subscription?referral=741badb4-5940-45a1-989c-16bb967a4192" class="btn" style="margin-top: 30px;" target="_blank">
-            🚀 Activate TorBox Pro Bonus & Sign Up
-        </a>
     </div>
-
-    <script>
-        // Функция за Копиране
-        function copyToClipboard() {
-            var codeText = document.getElementById("referralCode").innerText;
-            navigator.clipboard.writeText(codeText).then(function() {
-                var btn = document.getElementById("copyBtn");
-                btn.innerText = "Copied!";
-                btn.classList.add("copied");
-                setTimeout(function() {
-                    btn.innerText = "Copy";
-                    btn.classList.remove("copied");
-                }, 2000);
-            });
-        }
-
-        // Логика за FAQ падащите въпроси
-        document.querySelectorAll('.faq-question').forEach(item => {
-            item.addEventListener('click', () => {
-                const parent = item.parentElement;
-                const answer = item.nextElementSibling;
-                
-                if (parent.classList.contains('active')) {
-                    parent.classList.remove('active');
-                    answer.style.maxHeight = null;
-                } else {
-                    // Затваря другите отворени въпроси (опционално, за прегледност)
-                    document.querySelectorAll('.faq-item').forEach(child => {
-                        child.classList.remove('active');
-                        child.querySelector('.faq-answer').style.maxHeight = null;
-                    });
-                    
-                    parent.classList.add('active');
-                    answer.style.maxHeight = answer.scrollHeight + "px";
-                }
-            });
-        });
-    </script>
-
 </body>
 </html>
